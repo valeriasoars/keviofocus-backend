@@ -20,8 +20,18 @@ builder.Services.AddScoped<IFocusTaskService, FocusTaskService>();
 builder.Services.AddScoped<IStudyMaterialService, StudyMaterialService>();
 builder.Services.AddScoped<ICycleService, CycleService>();
 
-var app = builder.Build();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngular", policy =>
+    {
+        policy.WithOrigins("http://localhost:4200")
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
 
+
+var app = builder.Build();
 
 
 app.MapOpenApi();
@@ -29,6 +39,7 @@ app.MapScalarApiReference();
 
 
 app.UseHttpsRedirection();
+app.UseCors("AllowAngular");
 
 app.UseAuthorization();
 
