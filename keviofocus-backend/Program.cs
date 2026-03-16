@@ -39,7 +39,7 @@ app.MapScalarApiReference();
 
 app.UseHttpsRedirection();
 
-app.UseCors("AllowAngular");
+app.UseCors("AllowAll");
 
 app.UseAuthorization();
 
