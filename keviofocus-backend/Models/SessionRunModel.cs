@@ -1,4 +1,5 @@
 ﻿using keviofocus_backend.Emuns;
+using System.Text.Json.Serialization;
 using static System.Collections.Specialized.BitVector32;
 
 namespace keviofocus_backend.Models
@@ -14,6 +15,7 @@ namespace keviofocus_backend.Models
         public int TotalFocusSeconds { get; set; }
         public int TotalBreakSeconds { get; set; }
 
+        [JsonIgnore]
         public SessionModel Session { get; set; } = null!;
         public ICollection<TaskCompletionModel> TaskCompletions { get; set; } = new List<TaskCompletionModel>();
     }

@@ -21,6 +21,7 @@ builder.Services.AddDbContext<KevioDbContext>(options =>
 builder.Services.AddScoped<ISessionService, SessionService>();
 builder.Services.AddScoped<ITaskService, TaskService>();
 builder.Services.AddScoped<ISessionRunService, SessionRunService>();
+builder.Services.AddScoped<ITaskCompletionService, TaskCompletionService>();
 
 
 var app = builder.Build();

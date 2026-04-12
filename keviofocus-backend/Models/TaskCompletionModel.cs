@@ -1,4 +1,6 @@
-﻿namespace keviofocus_backend.Models
+﻿using System.Text.Json.Serialization;
+
+namespace keviofocus_backend.Models
 {
     public class TaskCompletionModel
     {
@@ -7,8 +9,9 @@
         public string SessionRunId { get; set; } = string.Empty;
         public DateTime CompletedAt { get; set; } = DateTime.UtcNow;
 
-  
+        [JsonIgnore]
         public TaskItemModel Task { get; set; } = null!;
+        [JsonIgnore]
         public SessionRunModel SessionRun { get; set; } = null!;
     }
 }
