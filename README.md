@@ -53,3 +53,12 @@ dotnet tool install --global dotnet-ef
 ```
 dotnet ef database update --context KevioDbContext
 ```
+
+##  Testando a API com Scalar
+
+O projeto utiliza o **Scalar** (alternativa moderna ao Swagger) para documentação e testes manuais da API.
+
+### Como acessar:
+1. Certifique-se de que o projeto está rodando (`dotnet run`).
+2. Acesse no seu navegador: `https://localhost:PORTA/scalar/v1`
+   *(Substitua PORTA pela porta exibida no seu console, ex: 7000).*
