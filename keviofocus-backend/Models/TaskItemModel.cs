@@ -1,4 +1,5 @@
-﻿using static System.Collections.Specialized.BitVector32;
+﻿using System.Text.Json.Serialization;
+using static System.Collections.Specialized.BitVector32;
 
 namespace keviofocus_backend.Models
 {
@@ -11,6 +12,7 @@ namespace keviofocus_backend.Models
         public int OrderIndex { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
+        [JsonIgnore]
         public SessionModel Session { get; set; } = null!;
         public ICollection<TaskCompletionModel> Completions { get; set; } = new List<TaskCompletionModel>();
     }
