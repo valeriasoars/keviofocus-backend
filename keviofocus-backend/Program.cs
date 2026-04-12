@@ -1,5 +1,8 @@
-using Microsoft.EntityFrameworkCore;
 using keviofocus_backend.Data;
+using keviofocus_backend.Services;
+using keviofocus_backend.Services.Interfaces;
+using Microsoft.EntityFrameworkCore;
+using Scalar.AspNetCore;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +16,7 @@ builder.Services.AddOpenApi();
 builder.Services.AddDbContext<KevioDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+builder.Services.AddScoped<ISessionService, SessionService>();
 
 
 var app = builder.Build();
@@ -21,6 +25,7 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.MapScalarApiReference();
 }
 
 app.UseHttpsRedirection();
